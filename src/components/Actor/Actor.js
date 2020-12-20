@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import tv from '../../assets/image/tv.svg';
 
 let Actor = ()=>{
     const [name,setName] = useState("hello");
@@ -6,6 +7,7 @@ let Actor = ()=>{
     return (
         <>
             <div className="Actor">
+                <img src={tv}/>
                 <div className="actor-inner"></div>
             </div>
         </>

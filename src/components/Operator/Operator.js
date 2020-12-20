@@ -1,11 +1,11 @@
 import React from 'react';
+import OperatorBase from '../OperatorBase';
 
 let Operator = ()=>{
-
     return (
         <>
             <div className="Operator">
-                这里是句柄
+                <OperatorBase></OperatorBase>
             </div>
         </>
     )

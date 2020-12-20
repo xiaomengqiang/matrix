@@ -1,13 +1,68 @@
-body {
+html,body,p,span,ul,li,div,i{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  outline: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*
+* 新的知识点：关于@font-face 中 local('☺') 的作用
+*
+* 作用1：规避异常情况，因为浏览器默认会首先检测用户的系统字体是否有和 @font-face 声明的字体同名的字体，如果有就是优先使用系统字体，
+        由于 @font-face 通常是开发者自定义生成的字体，可能和系统字体有重名，所以可以使用 src: local('☺') 来规避，
+        因为 OpenType 协议规定字体名字中含有双字节 unicode 字符会被视作非法，所以这个笑脸就是用来让浏览器不匹配到任何系统字体，从而使用url中的字体，从而规避 @font-face 字体可能和系统字体重名而造成的问题
+*
+  作用2：处理IE浏览器异常，local()是从用户的机器上读取字体，不用到服务器上下载了。
+        因为IE不支持多个src，IE读取第一个src时，会把第二个src的字符串当成一个大的路径，并向服务器发出一个额外的、无用、404的错误请求。
+        刚好local()是IE不支持的，从而阻止IE继续读取后面的src属性。但是local()虽然IE不支持，依然发了一个空的http头到服务器上
+*/
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: local('☺'), url(./assets/fonts/Nunito-ExtraLight.ttf) format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: local('☺'), url(./assets/fonts/Nunito-Light.ttf) format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: local('☺'), url(./assets/fonts/Nunito-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: local('☺'), url(./assets/fonts/Nunito-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: local('☺'), url(./assets/fonts/Nunito-Bold.ttf) format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: local('☺'), url(./assets/fonts/Nunito-ExtraBold.ttf) format('truetype');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: local('☺'), url(./assets/fonts/Nunito-Black.ttf) format('truetype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'ZCOOLKuaiLe-Regular';
+  src: local('☺'), url(./assets/fonts/ZCOOLKuaiLe-Regular.ttf) format('truetype');
+}
+
+body{
+  font-family: 'Nunito-Regular','ZCOOLKuaiLe-Regular';
 }
