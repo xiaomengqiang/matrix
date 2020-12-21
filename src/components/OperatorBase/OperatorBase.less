@@ -1,0 +1,151 @@
+.OperatorBase{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    .operator-name{
+        width: 100px;
+        height: 42px;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+        line-height: 42px;
+        background-color: aqua;
+        border-top-left-radius: 21px;
+        border-bottom-left-radius: 21px;
+        box-shadow: 0 0 4px 0px rgba(51, 51, 51, 0.2);
+        .operator-svgs{
+            top: 0;
+            left: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 42px;
+            position: absolute;
+            .svg-warpper{
+                top: -100px;
+                left: 0px;
+                width: 60px;
+                height: 80px;
+                cursor: pointer;
+                overflow: hidden;
+                position: absolute;
+                transform-origin: 50% 150%;
+                svg{
+                    left: -72px;
+                    position: absolute;
+                    transform: rotate(-72deg);
+                    transform-origin: 50% 50%;
+                    circle{
+                        stroke-dasharray: 400,400;
+                        stroke-dashoffset: 460;
+                        &.svg-color-move{
+                            stroke: #08979c;
+                            &:hover{
+                                stroke: #13c2c2;
+                            }
+                        }
+                    }
+                }
+                .svg-name{
+                    top:  10px;
+                    left: 50%;
+                    position: absolute;
+                    font-size: 14px;
+                    transform: translate3d(-50%, 0px, 0px);
+                }
+            }
+        }
+        .operator-choose{
+            z-index: -1;
+            position: absolute;
+            top:  -80px;
+            left: -80px;
+            width: 200px;
+            height: 200px;
+            transform-origin: 50% 50%;
+            .operator-background{
+                width: 200px;
+                height: 200px;
+                position: relative;
+                border-radius: 200px;
+                background-image: linear-gradient(to right,transparent 50%,red 0);
+                &:hover{
+                    background-image: linear-gradient(to right,transparent 50%,blue 0);
+                }
+                &::after{
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    top:    0;
+                    left:   50%;
+                    width:  50%;
+                    height: 100%;
+                    border-top-right-radius:    200px;
+                    border-bottom-right-radius: 200px;
+                    transform-origin: 0 50%;
+                    transform: rotate(30deg);
+                    background-color: #FFFFFF;
+                }
+            }
+            .operator-shade{
+                position: absolute;
+                top: 50px;
+                left: 50px;
+                width: 100px;
+                height: 100px;
+                border-radius: 100px;
+                background-color: #FFFFFF;
+            }
+        }
+    }
+    .operator-content{
+        padding-left: 50px;
+        height: 60px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #eee;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 0 4px 0px rgba(51, 51, 51, 0.2);
+        .operator-handler-warpper{
+            align-self: stretch;
+        }
+        .operator-handler{
+            width: 60px;
+            height: 100%;
+            display: inline-flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        .operator-add{
+            background-color: #FFFFFF;
+            &:hover{
+                background-color: #fff7e6;
+            }
+            &::after{
+                content: "";
+                display: block;
+                width: 32px;
+                height: 32px;
+                background-image: url('../../assets/image/add.svg');
+            }
+        }
+        .operator-delete{
+            background-color: #ff4d4f;
+            &:hover{
+                background-color: #ffa39e;
+            }
+            &::after{
+                content: "";
+                display: block;
+                width: 32px;
+                height: 32px;
+                background-image: url('../../assets/image/delete.svg');
+            }
+        }
+    }
+}
